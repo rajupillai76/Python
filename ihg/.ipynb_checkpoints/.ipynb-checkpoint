@@ -21,17 +21,17 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 2,
+   "execution_count": 3,
    "metadata": {},
    "outputs": [],
    "source": [
-    "rccsvfile = open('/Users/raju.pillai/mydata/DAdata/DataAcquisition/source/ihg/RCF20180927_101352.csv','r')\n",
-    "rcjsonfile = open ('/Users/raju.pillai/mydata/DAdata/DataAcquisition/output/json/ihg/RCF20180927_101352.json','w+')"
+    "rccsvfile = open('/Users/raju.pillai/gitrepo/python/data/DataAcquisition/source/csv/711RCF20190926_031857.in','r')\n",
+    "rcjsonfile = open ('/Users/raju.pillai/gitrepo/python/data/DataAcquisition/output/json/711RCF20190926_031857.json','w+')"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": 4,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -40,7 +40,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": 5,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -63,6 +63,45 @@
    "outputs": [],
    "source": [
     "#rcjsondf.info()   # gives information regarding the dataframe"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "rtcsvfile = open('/Users/raju.pillai/gitrepo/python/data/DataAcquisition/source/csv/711RTF20190926.in','r')\n",
+    "rtjsonfile = open ('/Users/raju.pillai/gitrepo/python/data/DataAcquisition/output/json/711RTF20190926.json','w+')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "rtjsondf = DataFrame(pd.read_csv(rtcsvfile, sep='|', engine='python'))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "export = rtjsondf.to_json(rtjsonfile,orient='records')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "rtcsvfile.close()\n",
+    "rtjsonfile.close()\n",
+    "del rtjsondf"
    ]
   }
  ],
